@@ -1,46 +1,59 @@
 import Ember from 'ember';
-import Notify from 'ember-notify';
 
 export default Ember.Controller.extend({
   init: function() {
     this.set("cityName","Mumbai");
+    this.set('newSearch',Ember.Object.create({
+      bookingDate: this.get('bookingDate'),
+      cityName: this.get('cityName'),
+      peopleRequired: this.get('peopleRequired'),
+      bookingTime: this.get('bookingTime')
+    }));
+    console.log(this.get('newSearch'));
   },
-  notify: Notify.Container.create(),
+
   actions: {
-    clicked: function() {
-      this.notify.info("Hello from the controller!");
-    },
     changeCity: function(city) {
       this.set("cityName",city);
+    },
+    findBooking: function() {
+      // Code incorporating aspects of newSearch and firebase
+      // on clicking the "Book" button
     }
   },
 
-  restaurants: function() {
-    return this.store.find('restaurant');
-  },
+//Update search object model when values are changed
+  updateSearchModel: function() {
+    var newSearch = this.get('newSearch');
+    newSearch.set('bookingDate',this.get('bookingDate'));
+    newSearch.set('bookingTime',this.get('bookingTime'));
+    newSearch.set('peopleRequried',this.get('peopleRequired'));
+    newSearch.set('cityName',this.get('cityName'));
+    newSearch.set('restaurantId',this.get('restaurantId'));
+    console.log(newSearch);
+  }.observes('cityName','peopleRequired','bookingDate','bookingTime'),
 
-  names: [],
+//Initial properties
   cityName: null,
-  peopleRequired: "2 people",
+  peopleRequired: 2,
+  peopleRequiredString: function() {
+    return this.get('peopleRequired').toString().concat(" people");
+  }.property('peopleRequired'),
   bookingDate: null,
-  timeRequired: "3:00 PM",
+  bookingTime: "3:00 PM",
 
+// Autocomplete variables and methods
   searchText: null,
-
   searchResults: function() {
     var searchText = this.get('searchText');
-    // var modelData = this.store.find('restaurant');
-    var modelData = ["Mumbai","Sydney","NYC"];
+    var modelData = ["Mumbai","Cairns"];
 
     if(!searchText || searchText.length < 4) { return; }
 
     var regex = new RegExp(searchText,'i');
-
     var results = modelData.filter(function(place) {
       return place.match(regex);
     });
-
     return results;
-
   }.property('searchText')
 });

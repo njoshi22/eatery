@@ -1,1 +1,10 @@
-{{outlet}}
+{{input type='text' value=newRestaurant.name placeholder='Name...'}}
+{{input type='text' value=newRestaurant.cuisine placeholder='Cuisine'}}
+<button {{action 'saveRestaurant'}}>Save</button>
+
+
+<ul>
+  {{#each model}}
+  <li>{{this.name}} ({{this.cuisine}})</li>
+  {{/each}}
+</ul>

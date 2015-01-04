@@ -9,13 +9,13 @@
         <span class="icon-bar"></span>
       </button>
       <span class='navbar-brand'>
-        <img class='brand-image' src="assets/images/logo.png" />
+        {{#link-to 'index'}}<img class='brand-image' src="assets/images/logo.png" />{{/link-to}}
       </span>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
         <li>{{#link-to 'index'}}Home{{/link-to}}</li>
-        <li>{{#link-to 'index'}}About{{/link-to}}</li>
+        <li>{{#link-to 'admin'}}Admin{{/link-to}}</li>
         <li>{{#link-to 'index'}}Sign In{{/link-to}}</li>
       </ul>
     </div><!--/.nav-collapse -->
