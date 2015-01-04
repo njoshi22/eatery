@@ -14,8 +14,33 @@ export default Ember.Controller.extend({
       this.set("cityName",city);
     }
   },
+
+  restaurants: function() {
+    return this.store.find('restaurant');
+  },
+
+  names: [],
   cityName: null,
   peopleRequired: "2 people",
+  bookingDate: null,
   timeRequired: "3:00 PM",
-  optionSelect: ['Mumbai','Cairns']
+
+  searchText: null,
+
+  searchResults: function() {
+    var searchText = this.get('searchText');
+    // var modelData = this.store.find('restaurant');
+    var modelData = ["Mumbai","Sydney","NYC"];
+
+    if(!searchText || searchText.length < 4) { return; }
+
+    var regex = new RegExp(searchText,'i');
+
+    var results = modelData.filter(function(place) {
+      return place.match(regex);
+    });
+
+    return results;
+
+  }.property('searchText')
 });

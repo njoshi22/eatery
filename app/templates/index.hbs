@@ -1,25 +1,46 @@
 <div class="jumbotron">
   <div class="container">
+    <div class='row'>
+      <div class='col-md-2'></div>
+      <div class='col-md-8'>
     <br><br><br>
     <h2>I want to book a table in <span class="main-options">{{cityName}}</span>
-      for  <span class='main-options'>{{peopleRequired}}</span><br><br>
-      on
+      for  <span class='main-options'>{{peopleRequired}}</span>
+      <br>on
       <span class='main-options'>
         {{date-picker date=bookingDate valueFormat='YYYY-MM-DD' format='Do MMM YYYY'}}
       </span> at
       <span class='main-options'>{{timeRequired}}</span>
+      <br>
+      {{input type='text'
+      value=searchText
+      class='main-options'
+      placeholder='Restaurant name...'}}
     </h2>
+
     <br>
 
-    <button {{action 'changeCity' 'Cairns'}}>Click!</button>
-
-    <p>
+    {{!-- <p>
       <div class="input-group input-group-lg">
         <input type="text" class="form-control" placeholder="Restaurant name">
         <div class="input-group-btn">
           <button class="btn btn-default" type="button">Go!</button>
         </div>
       </div><!-- /input-group -->
-    </p>
+    </p> --}}
+    
+  </div> <!-- /middle column in container -->
+</div> <!-- /row -->
   </div>  <!-- /container -->
+</div>
+<div class="container">Boo!
+
+  <ul>
+    {{#each searchResults}}
+    <li>{{this}}</li>
+    {{/each}}
+  </ul>
+
+  {{render "searchplaces"}}
+<button {{action 'changeCity' 'Cairns'}}>Click!</button>
 </div>

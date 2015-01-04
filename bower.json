@@ -14,9 +14,17 @@
     "ember-qunit-notifications": "0.0.4",
     "qunit": "~1.15.0",
     "pikaday": "~1.2.0",
-    "moment": "~2.8.4"
+    "moment": "~2.8.4",
+    "selectize": "~0.11.2",
+    "ember-cli-list-view": "<0.0.3",
+    "firebase": "~1.1.0"
   },
   "devDependencies": {
-    "ember-widgets": "~0.2.0"
+    "ember-widgets": "~0.2.0",
+    "ic-autocomplete": "~0.2.0"
+  },
+  "resolutions": {
+    "ember": "1.7.0",
+    "jquery": "^1.11.1"
   }
 }
