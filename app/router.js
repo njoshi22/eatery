@@ -8,7 +8,10 @@ var Router = Ember.Router.extend({
 Router.map(function() {
   this.route('admin');
   this.route('loading');
-  this.route('restaurant', {path: "/restaurants/:restaurant_id"});
+  this.resource('restaurants', { path: '/restaurants'});
+  this.resource('restaurant', { path: '/restaurants/:restaurant_id' }, function() {
+    this.route('schedules');
+  });
 });
 
 export default Router;

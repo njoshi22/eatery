@@ -1,0 +1,18 @@
+<h1>{{model.name}}</h1>
+
+{{#link-to 'schedules' this}}View schedules{{/link-to}}
+
+Add schedule:
+
+{{input type='text' value=timeId}} {{input type='checkbox' checked=bookedCheck}}
+<button></button>
+
+<ul>
+  {{#each model.schedules}}
+  {{#if booked}}
+  <li></li>
+  {{/if}}
+  {{/each}}
+</ul>
+
+{{outlet}}

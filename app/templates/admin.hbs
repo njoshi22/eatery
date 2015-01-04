@@ -5,6 +5,6 @@
 
 <ul>
   {{#each model}}
-  <li>{{this.name}} ({{this.cuisine}})</li>
+  <li>{{#link-to 'restaurant' this}} {{this.name}} ({{this.cuisine}}) {{/link-to}}</li>
   {{/each}}
 </ul>
