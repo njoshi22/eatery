@@ -1,0 +1,25 @@
+<div class="jumbotron">
+  <div class="container">
+    <br><br><br>
+    <h2>I want to book a table in <span class="main-options">{{cityName}}</span>
+      for  <span class='main-options'>{{peopleRequired}}</span><br><br>
+      on
+      <span class='main-options'>
+        {{date-picker date=bookingDate valueFormat='YYYY-MM-DD' format='Do MMM YYYY'}}
+      </span> at
+      <span class='main-options'>{{timeRequired}}</span>
+    </h2>
+    <br>
+
+    <button {{action 'changeCity' 'Cairns'}}>Click!</button>
+
+    <p>
+      <div class="input-group input-group-lg">
+        <input type="text" class="form-control" placeholder="Restaurant name">
+        <div class="input-group-btn">
+          <button class="btn btn-default" type="button">Go!</button>
+        </div>
+      </div><!-- /input-group -->
+    </p>
+  </div>  <!-- /container -->
+</div>
