@@ -12,13 +12,13 @@ Router.map(function() {
   this.route("restaurants",{
     path: "/restaurants"
   });
+
   this.resource("restaurant", {
     path: "/restaurants/:restaurant_id"
   }, function() {
-    this.resource("schedules", { //for some reason this has to be resource, not route - don't know why?
-      path: "/schedules"
+      this.route('bookings');
     });
-  });
+  this.route('restaurant/bookings');
 });
 
 export default Router;

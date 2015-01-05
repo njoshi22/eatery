@@ -1,12 +1,12 @@
 import Ember from 'ember';
 
-export default Ember.ObjectController.extend({
+export default Ember.Controller.extend({
   needs: ["restaurant"],
   restaurant: Ember.computed.alias('controllers.restaurant.model'),
   actions: {
     createSchedule: function() {
       var schedule = this.store.createRecord('schedule', {
-        time: '2100',
+        time: this.get('timeSelect.name'),
         booked: false
       });
       var restaurant = this.get('restaurant');
@@ -14,6 +14,14 @@ export default Ember.ObjectController.extend({
       schedules.pushObject(schedule);
       schedule.save();
       restaurant.save();
+    },
+    deleteSchedule: function(item) {
+      item.delete();
     }
-  }
+  },
+  timings: [{
+    name: '2130'
+  },{
+    name: '2200'
+  }]
 });

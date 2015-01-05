@@ -1,0 +1,22 @@
+fuck yes.
+
+<br>
+
+Schedules for {{restaurant.name}}
+<br>
+
+<ul>
+{{#each model.schedules}}
+<li>{{time}} {{input type='checkbox' checked=booked}} <button {{action 'deleteSchedule' this}}>Delete</button></li>
+{{/each}}
+</ul>
+
+<br>
+
+{{view "Ember.Select" content=timings
+optionLabelPath="content.name"
+optionValuePath="content.name"
+prompt="Create schedule"
+selection=timeSelect
+}}
+<button {{action 'createSchedule'}}>Create schedule</button>
