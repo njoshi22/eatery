@@ -1,4 +1,4 @@
-fuck yes.
+{{#link-to 'restaurant.index'}}fuck yes.{{/link-to}}
 
 <br>
 
@@ -13,10 +13,14 @@ Schedules for {{restaurant.name}}
 
 <br>
 
-{{view "Ember.Select" content=timings
+<div class='search-div'>
+{{ember-selectize
+content=timings
 optionLabelPath="content.name"
 optionValuePath="content.name"
 prompt="Create schedule"
 selection=timeSelect
 }}
+</div>
+
 <button {{action 'createSchedule'}}>Create schedule</button>

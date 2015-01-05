@@ -116,3 +116,10 @@ select::-ms-expand {
 #restaurant-search {
   border: none;
 }
+
+.search-div {
+  max-width: 250px;
+}
+
+.ember-selectize {
+}
