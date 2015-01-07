@@ -1,6 +1,8 @@
 body {
-  padding-top: 60px;
-  background-color: rgba(189, 195, 199,0.4);
+  padding-top: 61px;
+  /*background-color: rgba(189, 195, 199,0.4);*/
+  font-family: open-sans, sans-serif;;
+
 }
 
 h2 {
@@ -11,45 +13,66 @@ h2 {
 
 .navbar {
   padding: 5px;
+  -webkit-box-shadow: 0px 5px 4px -5px #333;
+  -moz-box-shadow: 0px 5px 4px -5px #333;
+  box-shadow: 0px 5px 4px -3px #333;
+  border-bottom: none;
 }
 
 .navbar-inverse {
   /*background-color: #E74C3C;*/
-  background-color: rgba(33,33,33,0.8);
+  /*background-color: rgba(192, 57, 43,0.8);*/
+  /*background-color: rgba(33,33,33,0.8);*/
+  background-color: #d50000;
   /*background-color #333;*/
 }
 
 .navbar-inverse .navbar-brand {
-  color: #fff;
-  font-size: 16pt;
+  color: #f44336;
+  font-size: 24px;
+  font-family: mr-bedfort, cursive;
 }
 
-.navbar-inverse .navbar-brand:hover .navbar-brand:focus {
-  color: #fff;
+.navbar-inverse .navbar-brand a {
+  color: #f44336;
+  font-size: 24px;
+  font-family: mr-bedfort, cursive;
+  outline: 0;
 }
+
+/*.navbar-inverse .navbar-brand:hover .navbar-brand:focus {
+  color: #fff;
+}*/
 
 .navbar-inverse .navbar-text {
-  color: #fff;
+  color: #f44336;
 }
+
 .navbar-inverse .navbar-nav > li > a {
-  color: #fff;
+  color: #f44336;
+  outline: 0;
 }
 .navbar-inverse .navbar-nav > li > a:hover,
 .navbar-inverse .navbar-nav > li > a:focus {
-  color: #fff;
+  color: #f44336;
   /*background-color: rgba(32,32,32,0.4);*/
-  background-color: rgba(255,255,255,0.1);
+  /*background-color: rgba(255,255,255,0.1);*/
+  /*border-bottom: solid 2px #f44336;*/
 }
 
+/*.navbar-nav .active {
+  border-bottom: solid 2px #f44336;
+}*/
 
 .brand-image {
   height: 50px;
   position: relative;
 }
 
+/* Required when navbar-brand is an image
 .navbar-brand {
   padding: 0px;
-}
+}*/
 
 /* END CUSTOM NAVBAR */
 
@@ -59,7 +82,8 @@ h2 {
     url(/assets/images/background.jpg) no-repeat center center;
   background-size: cover;*/
   /*background-color: #333;*/
-  background-color: #E74C3C;
+  /*background-color: #E74C3C;*/
+  background-color: #d50000;
   /*height: 600px;*/
   color: #fff;
 }
@@ -77,9 +101,10 @@ h2 {
 
 .main-options {
   /*background: rgba(231,76,60,0.7);*/
-  background: #333;
+  background: #c6ff00;
   /*color: #E74C3C;*/
-  color: #fff;
+  /*color: #ff1744;*/
+  color: #d50000;
   padding-top: 3px;
   padding-bottom: 3px;
   padding-left: 8px;
@@ -87,10 +112,25 @@ h2 {
   border: none;
 }
 
-#main-button {
-  background: rgb(192, 57, 43);
-  border: solid 5px #333;
-  color: #333;
+.ghost-button {
+  display: inline-block;
+  color: #fff;
+  border: 2px solid #fff;
+  text-align: center;
+  outline: none;
+  text-decoration: none;
+  background: transparent;
+  transition: background-color 0.3s ease-out,
+  color 0.3s ease-out;
+}
+.ghost-button:hover,
+.ghost-button:active {
+  background-color: #c6ff00;
+  color: #d50000;
+  border: 2px solid #c6ff00;
+  transition: color 0.3s ease-in,
+  background-color 0.3s ease-in,
+  border-color 0.3s ease-in;
 }
 
 .drop-down {
@@ -109,17 +149,17 @@ h2 {
   padding-right: 8px;
 }
 
+.navbar.past-main {
+  background-color: transparent;
+}
+
+/* This is for the search box */
+.searchbox-input {
+  width: 50px;
+}
+
+/* END */
+
 select::-ms-expand {
   display: none;
-}
-
-#restaurant-search {
-  border: none;
-}
-
-.search-div {
-  max-width: 250px;
-}
-
-.ember-selectize {
 }

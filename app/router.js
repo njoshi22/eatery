@@ -16,7 +16,6 @@ Router.map(function() {
   this.resource("restaurant", {
     path: "/restaurants/:restaurant_id"
   }, function() {
-      this.route('bookings');
     });
   this.route('restaurant/bookings');
 });

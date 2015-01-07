@@ -6,6 +6,8 @@
     <title>Eatery</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="//use.edgefonts.net/open-sans:n3,i3,n4.js"></script>
+    <script src="//use.edgefonts.net/mr-bedfort.js"></script>
 
     {{content-for 'head'}}
 
@@ -17,5 +19,21 @@
 
     <script src="assets/vendor.js"></script>
     <script src="assets/eatery.js"></script>
+    <script type="javascript">
+    var mainbottom = $('#mainjumbotron').offset().top + $('#mainjumbotron').height();
+
+    // on scroll,
+    $(window).on('scroll',function(){
+
+      // we round here to reduce a little workload
+      stop = Math.round($(window).scrollTop());
+      if (stop > mainbottom) {
+        $('.navbar').addClass('past-main');
+      } else {
+        $('.navbar').removeClass('past-main');
+      }
+
+    });
+    </script>
   </body>
 </html>

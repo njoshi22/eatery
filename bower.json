@@ -17,7 +17,8 @@
     "moment": "~2.8.4",
     "selectize": "~0.11.2",
     "ember-cli-list-view": "<0.0.3",
-    "firebase": "~1.1.0"
+    "firebase": "~1.1.0",
+    "materialize": "~0.93.0"
   },
   "resolutions": {
     "jquery": "^1.11.1",
