@@ -6,7 +6,7 @@ Schedules for {{restaurant.name}}
 <br>
 
 <ul>
-{{#each model.schedules}}
+{{#each model}}
 <li>{{time}} {{input type='checkbox' checked=booked}} <button {{action 'deleteSchedule' this}}>Delete</button></li>
 {{/each}}
 </ul>
@@ -14,11 +14,11 @@ Schedules for {{restaurant.name}}
 <br>
 
 <div class='search-div'>
-{{ember-selectize
+{{view 'select'
 content=timings
 optionLabelPath="content.name"
 optionValuePath="content.name"
-prompt="Create schedule"
+prompt="Pick a time slot.."
 selection=timeSelect
 }}
 </div>

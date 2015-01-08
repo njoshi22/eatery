@@ -1,9 +1,11 @@
-<h1>{{model.name}}</h1> {{#link-to 'restaurant.bookings'}}Manage schedules{{/link-to}}<br>
-Available schedules:
-<ul>
-  {{#each model.schedules}}
-  {{#unless booked}}
-  <li>{{time}}</li>
-  {{/unless}}
-  {{/each}}
-</ul>
+<div class='container'>
+  <h1>{{model.name}}</h1> {{#link-to 'restaurant.bookings'}}Manage schedules{{/link-to}}<br>
+  Available schedules:
+  <ul>
+    {{#each model.schedules}}
+    {{#unless booked}}
+    <li>{{time}}</li>
+    {{/unless}}
+    {{/each}}
+  </ul>
+</div>

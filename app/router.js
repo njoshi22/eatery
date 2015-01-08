@@ -8,16 +8,13 @@ var Router = Ember.Router.extend({
 Router.map(function() {
   this.route("admin");
   this.route("loading");
-
-  this.route("restaurants",{
-    path: "/restaurants"
-  });
+  this.route("restaurants");
 
   this.resource("restaurant", {
-    path: "/restaurants/:restaurant_id"
+    path: '/restaurant/:restaurant_id'
   }, function() {
-    });
-  this.route('restaurant/bookings');
+    this.route("bookings", {path: "/bookings"});
+  });
 });
 
 export default Router;

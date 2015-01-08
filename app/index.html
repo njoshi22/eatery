@@ -13,27 +13,15 @@
 
     <link rel="stylesheet" href="assets/vendor.css">
     <link rel="stylesheet" href="assets/eatery.css">
+
+    {{content-for 'head-footer'}}
   </head>
   <body>
     {{content-for 'body'}}
 
     <script src="assets/vendor.js"></script>
     <script src="assets/eatery.js"></script>
-    <script type="javascript">
-    var mainbottom = $('#mainjumbotron').offset().top + $('#mainjumbotron').height();
 
-    // on scroll,
-    $(window).on('scroll',function(){
-
-      // we round here to reduce a little workload
-      stop = Math.round($(window).scrollTop());
-      if (stop > mainbottom) {
-        $('.navbar').addClass('past-main');
-      } else {
-        $('.navbar').removeClass('past-main');
-      }
-
-    });
-    </script>
+    {{content-for 'body-footer'}}
   </body>
 </html>

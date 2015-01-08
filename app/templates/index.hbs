@@ -6,9 +6,7 @@
         <h2>I want to book a table in <span class="main-options">{{cityName}}</span>
           for  <span class='main-options'>{{peopleRequiredString}}</span>
           <br>on
-          <span class='main-options'>
-            {{date-picker date=bookingDate valueFormat='YYYY-MM-DD' format='Do MMM YYYY'}}
-          </span> at
+            {{date-picker date=bookingDate valueFormat='YYYY-MM-DD' format='Do MMM YYYY' class='main-options'}}  at
           <span class='main-options'>{{bookingTime}}</span>
           <br>
           <p>
@@ -19,9 +17,9 @@
               class='main-options'
               placeholder='Restaurant name...'}}
             </span>
-              <button class='ghost-button'>Book now</button> <!-- Integrate the button with an action later -->
             </div><!-- /input-group -->
           </p>
+          <button class='ghost-button'>Book now</button> <!-- Integrate the button with an action later -->
         </h2>
       </div> <!-- /middle column in container -->
     </div> <!-- /row -->
@@ -37,8 +35,6 @@
     <li>{{this}}</li>
     {{/each}}
   </ul>
-
-  {{render "searchplaces"}}
 
   <button {{action 'changeCity' 'Cairns'}}>Click!</button>
 </div>

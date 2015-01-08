@@ -13,7 +13,7 @@ export default Ember.Controller.extend({
       var schedules = restaurant.get('schedules');
       schedules.pushObject(schedule);
       schedule.save();
-      restaurant.save();
+      restaurant.save().then(function(){alert('saved!');});
     },
     deleteSchedule: function(item) {
       item.delete();
