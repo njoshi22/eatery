@@ -1,27 +1,24 @@
-{{!-- {{view "Ember.Select" content=model
-optionLabelPath="content.name"
-optionValuePath="content.id"
-prompt="Pick a restaurant"
-selection=chosenRestaurantId
-classNameBinding="drop-down"
-}} --}}
+<div class='container child-route'>
+  <div class='row'>
+    <div class='search-div'>
+      {{ember-selectize
+        content=model
+        optionLabelPath="content.name"
+        optionValuePath="content.id"
+        prompt="Pick a restaurant..."
+        selection=chosenRestaurantId
+        autocomplete="on"
+      }}
+    </div>
 
-<div class='search-div'>
-  {{ember-selectize
-    content=model
-    optionLabelPath="content.name"
-    optionValuePath="content.id"
-    prompt="Pick a restaurant..."
-    selection=chosenRestaurantId
-    autocomplete="on"
-  }}
-</div>
-
-<br><br>
-<p>Available schedules:</p>
-<ul>
-{{#each chosenRestaurantId.schedules}}
-{{#unless booked}}
-<li>{{time}} <button {{action 'makeBooking' this}}>Book!</button></li>
-{{/unless}}
-{{/each}}
+    <br><br>
+    <p>Available schedules:</p>
+    <ul>
+      {{#each chosenRestaurantId.schedules}}
+      {{#unless booked}}
+      <li>{{time}} <button {{action 'makeBooking' this}}>Book!</button></li>
+      {{/unless}}
+      {{/each}}
+    </div>
+  </div> <!-- row -->
+</div> <!-- container -->

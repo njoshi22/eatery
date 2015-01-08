@@ -11,9 +11,11 @@ Router.map(function() {
   this.route("restaurants");
 
   this.resource("restaurant", {
-    path: '/restaurant/:restaurant_id'
+    path: "/restaurant/:restaurant_id"
   }, function() {
-    this.route("bookings", {path: "/bookings"});
+    this.route("bookings", {
+      path: "/bookings"
+    });
   });
 });
 

@@ -1,11 +1,16 @@
-<div class='container'>
-  <h1>{{model.name}}</h1> {{#link-to 'restaurant.bookings'}}Manage schedules{{/link-to}}<br>
-  Available schedules:
-  <ul>
+<div class='container child-route'>
+  <div class='col-md-12'>
+    <h1>{{model.name}}</h1>
+    <h4>{{#link-to 'restaurant.bookings'}}Manage schedules{{/link-to}}</h4>
+    <h3>Available schedules:</h3>
+    {{#if isAvailable}}
     {{#each model.schedules}}
     {{#unless booked}}
-    <li>{{time}}</li>
+    {{booking-items}}
     {{/unless}}
     {{/each}}
-  </ul>
+    {{else}}
+    <h4>Sorry, there are no available timeslots.</h4>
+    {{/if}}
+  </div>
 </div>

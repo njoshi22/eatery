@@ -1,7 +1,12 @@
+html {
+  height: 100%;
+}
+
 body {
   padding-top: 61px;
   background-color: #f44336;
   font-family: open-sans, sans-serif;;
+  height: 100%;
 }
 
 h2 {
@@ -143,13 +148,32 @@ h2 {
   background-color: transparent;
 }
 
-/* This is for the search box */
+/* This is for search boxes */
+/* main page search box */
 .searchbox-input {
   width: 50px;
 }
 
+/* others */
+.search-div {
+  max-width: 250px;
+}
 /* END */
 
 select::-ms-expand {
   display: none;
 }
+
+/* STYLES FOR INDIVIDUAL ROUTES */
+
+.child-route {
+  background: white;
+}
+
+/* END */
+
+/* STYLE FOR COMPONENTS */
+.booking-items {
+  height: 100px;
+}
+/* END */
