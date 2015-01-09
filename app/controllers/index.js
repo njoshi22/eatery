@@ -46,7 +46,10 @@ export default Ember.Controller.extend({
   searchText: null,
   searchResults: function() {
     var searchText = this.get('searchText');
-    var modelData = ["Mumbai","Cairns"];
+
+    var model = this.get('model');
+
+    var modelData = model.get('name');
 
     if(!searchText || searchText.length < 4) { return; }
 
@@ -55,5 +58,7 @@ export default Ember.Controller.extend({
       return place.match(regex);
     });
     return results;
-  }.property('searchText')
+  }.property('searchText'),
+
+  selectedRestaurant: null
 });

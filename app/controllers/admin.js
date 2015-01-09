@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import Notify from 'ember-notify';
 
 export default Ember.Controller.extend({
   init: function() {
@@ -12,7 +13,7 @@ export default Ember.Controller.extend({
       });
 
       restaurant.save().then(function() {
-        alert('saved');
+        Notify.show('danger','Saved!');
       });
 
     }

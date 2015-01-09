@@ -1,16 +1,25 @@
 <div class='container child-route'>
-  <div class='col-md-12'>
-    <h1>{{model.name}}</h1>
-    <h4>{{#link-to 'restaurant.bookings'}}Manage schedules{{/link-to}}</h4>
-    <h3>Available schedules:</h3>
-    {{#if isAvailable}}
-    {{#each model.schedules}}
-    {{#unless booked}}
-    {{booking-items}}
-    {{/unless}}
-    {{/each}}
-    {{else}}
-    <h4>Sorry, there are no available timeslots.</h4>
-    {{/if}}
+  <div class='row'>
+    <div class='col-md-3 child-sidebar'> <!-- Sidebar -->
+      <h4>{{#link-to 'restaurant.bookings'}}Manage schedules{{/link-to}}</h4>
+    </div>
+    <div class='col-md-9'>
+      <h1><b>{{model.name}}</b></h1>
+      <h2>Available schedules:</h2>
+      {{#if isAvailable}}
+      <h4>We found a total of {{availableCount}} {{inflection}} available.</h4>
+      <div class='well'>
+        <ul class='nav nav-pills schedules'>
+          {{#each model.schedules}}
+          {{#unless booked}}
+          <li><a>{{time-format time}}</a></li>
+          {{/unless}}
+          {{/each}}
+        </ul>
+      </div>
+      {{else}}
+      <h4>Sorry, there are no available timeslots.</h4>
+      {{/if}}
+    </div>
   </div>
 </div>

@@ -4,9 +4,23 @@ html {
 
 body {
   padding-top: 61px;
-  background-color: #f44336;
+  /*background-color: #f44336;*/
+  background-color: #fff;
   font-family: open-sans, sans-serif;;
   height: 100%;
+}
+
+.spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: url(/assets/images/10.gif) no-repeat;
+    /* url: http://loadinggif.com/images/image-selection/10.gif */;
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    margin-top: -16px;
+    margin-left: -16px;
 }
 
 h2 {
@@ -168,12 +182,40 @@ select::-ms-expand {
 
 .child-route {
   background: white;
+  height: 100%;
+  min-height: 600px;
+  font-family: open-sans, sans-serif;
+}
+
+.schedules  li a,
+.schedules  li a:hover,
+.schedules .active a,
+.schedules .active a:hover,
+.schedules .active a:focus {
+  background-color: #d50000;
+  text-decoration: none;
+  color: #fff;
+}
+
+.child-sidebar {
+  min-height: 600px;
+  border-right: solid 0.5px #333;
 }
 
 /* END */
 
 /* STYLE FOR COMPONENTS */
 .booking-items {
-  height: 100px;
+  min-height: 100px;
+  width: 100%;
 }
 /* END */
+
+.footer {
+  background: #222;
+  min-height: 200px;
+}
+
+.footer li {
+  list-style: none;
+}

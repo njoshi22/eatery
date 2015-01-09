@@ -7,7 +7,6 @@ var Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route("admin");
-  this.route("loading");
   this.route("restaurants");
 
   this.resource("restaurant", {
@@ -17,6 +16,8 @@ Router.map(function() {
       path: "/bookings"
     });
   });
+
+  this.route("loading");
 });
 
 export default Router;

@@ -1,10 +1,31 @@
-{{input type='text' value=newRestaurant.name placeholder='Name...'}}
-{{input type='text' value=newRestaurant.cuisine placeholder='Cuisine'}}
-<button {{action 'saveRestaurant'}}>Save</button>
-
-
-<ul>
-  {{#each model}}
-  <li>{{#link-to 'restaurant' this}} {{this.name}} ({{this.cuisine}}) {{/link-to}}</li>
-  {{/each}}
-</ul>
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-3 child-sidebar'> <!-- Sidebar -->
+    </div>
+    <div class='col-md-9'>
+      <h1>Administration</h1>
+      <h3>Add a new restaurant</h3>
+      <form>
+        <div class='form-group'>
+          <div class='input-group input-group-lg'>
+            <span class="input-group-addon" id="sizing-addon1">Restaurant name</span>
+            {{input type='text' value=newRestaurant.name placeholder='Name...' class='form-control'}}
+          </div>
+        </div>
+        <div class='form-group'>
+          <div class='input-group input-group-lg'>
+            <span class="input-group-addon" id="sizing-addon1">Cuisine</span>
+            {{input type='text' value=newRestaurant.cuisine placeholder='Cuisine' class='form-control'}}
+          </div>
+        </div>
+        <button class='btn btn-primary' {{action 'saveRestaurant'}}>Save</button>
+      </form>
+      <h3>Existing restaurants</h3>
+      <ul>
+        {{#each model}}
+        <li>{{#link-to 'restaurant' this}} {{this.name}} ({{this.cuisine}}) {{/link-to}}</li>
+        {{/each}}
+      </ul>
+    </div>
+  </div> <!-- Row -->
+</div>

@@ -4,7 +4,7 @@ export default Ember.Component.extend({
   actions: {
     makeBooking: function(timeslot) {
       timeslot.set('booked',true);
-      timeslot.save();
+      timeslot.save().then(function(){alert('Saved.');});
     }
   }
 });

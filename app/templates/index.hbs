@@ -12,10 +12,11 @@
           <p>
             <div class="input-group input-group-lg">
               <span class='searchbox-input'>
-              {{input type='text'
+              <!-- {{input type='text'
               value=searchText
               class='main-options'
-              placeholder='Restaurant name...'}}
+              placeholder='Restaurant name...'
+              id='typeahead'}} -->
             </span>
             </div><!-- /input-group -->
           </p>
@@ -38,3 +39,5 @@
 
   <button {{action 'changeCity' 'Cairns'}}>Click!</button>
 </div>
+
+{{selectedRestaurant}}
