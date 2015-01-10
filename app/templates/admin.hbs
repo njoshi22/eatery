@@ -21,11 +21,26 @@
         <button class='btn btn-primary' {{action 'saveRestaurant'}}>Save</button>
       </form>
       <h3>Existing restaurants</h3>
-      <ul>
-        {{#each model}}
-        <li>{{#link-to 'restaurant' this}} {{this.name}} ({{this.cuisine}}) {{/link-to}}</li>
-        {{/each}}
-      </ul>
+      {{#if isRestaurants}}
+      <table class="table table-condensed">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Cuisine</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each restaurant in model}}
+          <tr class="tr-class-1">
+            <td>{{#link-to 'restaurant' restaurant}} {{restaurant.name}}{{/link-to}}</td>
+            <td>{{restaurant.cuisine}}</td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+      {{else}}
+      <h4>There are currently no configured restaurants</h4>
+      {{/if}}
     </div>
   </div> <!-- Row -->
 </div>

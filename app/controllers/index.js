@@ -51,16 +51,16 @@ export default Ember.Controller.extend({
 // Autocomplete variables and methods
   searchText: null,
   searchResults: function() {
-    var searchText = this.get('searchText');
-    var res = this.store.all('restaurant');
-    var modelData = $.map(res, function(item) { return item.get('name');});
-
-    if(!searchText || searchText.length < 4) { return; }
-    var regex = new RegExp(searchText,'i');
-    var results = modelData.filter(function(place) {
-      return place.match(regex);
-    });
-    return results;
+    // var searchText = this.get('searchText');
+    // var res = this.store.all('restaurant');
+    // var modelData = $.map(res, function(item) { return item.get('name');});
+    //
+    // if(!searchText || searchText.length < 4) { return; }
+    // var regex = new RegExp(searchText,'i');
+    // var results = modelData.filter(function(place) {
+    //   return place.match(regex);
+    // });
+    // return results;
 
     /// not woring --> // this.store.filter('restaurant', function(place) {
     //   if(place.get('name').match(regex)) { return true; }

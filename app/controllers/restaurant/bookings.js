@@ -3,6 +3,9 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
   needs: ["restaurant"],
   restaurant: Ember.computed.alias('controllers.restaurant.model'),
+  availableCount: function() {
+    return this.get('model').filterBy('booked',false).get('length');
+  }.property('model.@each.booked'),
   actions: {
     createSchedule: function() {
       var schedule = this.store.createRecord('schedule', {
@@ -11,12 +14,15 @@ export default Ember.Controller.extend({
       });
       var restaurant = this.get('restaurant');
       var schedules = restaurant.get('schedules');
-      schedules.pushObject(schedule);
+      schedules.addObject(schedule);
       schedule.save();
-      restaurant.save().then(function(){alert('saved!');});
+      restaurant.save();
     },
     deleteSchedule: function(item) {
-      item.delete();
+      var restaurant = this.get('restaurant');
+      item.deleteRecord();
+      item.save();
+      restaurant.save();
     }
   },
   timings: [{
