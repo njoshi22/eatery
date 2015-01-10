@@ -6,20 +6,19 @@
         <h2>I want to book a table in <span class="main-options">{{cityName}}</span>
           for  <span class='main-options'>{{peopleRequiredString}}</span>
           <br>on
-            {{date-picker date=bookingDate valueFormat='YYYY-MM-DD' format='Do MMM YYYY' class='main-options'}}  at
+          {{date-picker date=bookingDate valueFormat='YYYY-MM-DD' format='Do MMM YYYY' class='main-options'}}  at
           <span class='main-options'>{{bookingTime}}</span>
-          <br>
-          <p>
-            <div class="input-group input-group-lg">
-              <span class='searchbox-input'>
-              <!-- {{input type='text'
+        <br>
+        <p>
+          <div class="input-group input-group-lg">
+            <span class='searchbox-input'>
+              {{input type='text'
               value=searchText
               class='main-options'
-              placeholder='Restaurant name...'
-              id='typeahead'}} -->
+              placeholder='Restaurant name...'}}
             </span>
-            </div><!-- /input-group -->
-          </p>
+          </div><!-- /input-group -->
+        </p>
           <button class='ghost-button'>Book now</button> <!-- Integrate the button with an action later -->
         </h2>
       </div> <!-- /middle column in container -->
@@ -29,15 +28,12 @@
 <!-- end of jumbotron -->
 <div class="container">
 
-  Booking for: {{newSearch.bookingDate}} in {{newSearch.cityName}}
+  {{!-- Booking for: {{newSearch.bookingDate}} in {{newSearch.cityName}} --}}
 
-  <ul>
-    {{#each searchResults}}
-    <li>{{this}}</li>
-    {{/each}}
-  </ul>
-
-  <button {{action 'changeCity' 'Cairns'}}>Click!</button>
 </div>
 
-{{selectedRestaurant}}
+<ul>
+  {{#each res in searchResults}}
+  <li>{{#link-to 'restaurants'}}{{res}}{{/link-to}}</li>
+  {{/each}}
+</ul>

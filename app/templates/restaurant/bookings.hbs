@@ -1,26 +1,33 @@
-{{#link-to 'restaurant.index'}}fuck yes.{{/link-to}}
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-3'>
+    </div>
+    <div class='col-md-9'>
+      {{#link-to 'restaurant.index'}}fuck yes.{{/link-to}}
 
-<br>
+      <br>
 
-Schedules for {{restaurant.name}}
-<br>
+      Schedules for {{restaurant.name}}
+      <br>
 
-<ul>
-{{#each model}}
-<li>{{time}} {{input type='checkbox' checked=booked}} <button {{action 'deleteSchedule' this}}>Delete</button></li>
-{{/each}}
-</ul>
+        <ul>
+        {{#each item in model}}
+        <li>{{item.time}} {{input type='checkbox' checked=item.booked}}
+          <button {{action 'deleteSchedule' item}}>Delete</button></li>
+        {{/each}}
+        </ul>
 
-<br>
+        <div class='search-div'>
+          {{view 'select'
+          content=timings
+          optionLabelPath="content.name"
+          optionValuePath="content.name"
+          prompt="Pick a time slot.."
+          selection=timeSelect
+        }}
+      </div>
 
-<div class='search-div'>
-{{view 'select'
-content=timings
-optionLabelPath="content.name"
-optionValuePath="content.name"
-prompt="Pick a time slot.."
-selection=timeSelect
-}}
+      <button {{action 'createSchedule'}}>Create schedule</button>
+    </div>
+  </div>
 </div>
-
-<button {{action 'createSchedule'}}>Create schedule</button>

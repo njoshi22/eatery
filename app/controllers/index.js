@@ -12,6 +12,12 @@ export default Ember.Controller.extend({
     console.log(this.get('newSearch'));
   },
 
+  filtered: function() {
+    var ret = Ember.computed.filterBy("model","name","Dummy1");
+    console.log(ret);
+    return ret;
+  }.observes('model'),
+
   actions: {
     changeCity: function(city) {
       this.set("cityName",city);
@@ -46,18 +52,26 @@ export default Ember.Controller.extend({
   searchText: null,
   searchResults: function() {
     var searchText = this.get('searchText');
-
-    var model = this.get('model');
-
-    var modelData = model.get('name');
+    var res = this.store.all('restaurant');
+    var modelData = $.map(res, function(item) { return item.get('name');});
 
     if(!searchText || searchText.length < 4) { return; }
-
     var regex = new RegExp(searchText,'i');
     var results = modelData.filter(function(place) {
       return place.match(regex);
     });
     return results;
+
+    /// not woring --> // this.store.filter('restaurant', function(place) {
+    //   if(place.get('name').match(regex)) { return true; }
+    // });
+    // modelData.filter(function(place) {
+    //   return place.match(regex);
+    // });
+
+    // var results = this.store.all('restaurant', {name: regex});
+    // return $.map(results,function(res) { return res.get('name'); });
+
   }.property('searchText'),
 
   selectedRestaurant: null

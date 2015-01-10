@@ -165,7 +165,7 @@ h2 {
 /* This is for search boxes */
 /* main page search box */
 .searchbox-input {
-  width: 50px;
+  width: 250px;
 }
 
 /* others */
@@ -198,7 +198,6 @@ select::-ms-expand {
 }
 
 .child-sidebar {
-  min-height: 600px;
   border-right: solid 0.5px #333;
 }
 
@@ -218,4 +217,15 @@ select::-ms-expand {
 
 .footer li {
   list-style: none;
+}
+
+#typeahead-results {
+  background: rgba(0,0,0,0.8);
+  color: #fff;
+  min-width: 150px; /* same as the text box */
+}
+
+#typeahead-results:hover {
+  background: #c6ff00;
+  color: #d50000;
 }

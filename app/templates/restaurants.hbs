@@ -1,5 +1,9 @@
 <div class='container child-route'>
   <div class='row'>
+    <div class='col-md-3'>
+    </div>
+    <div class='col-md-9'>
+      <h1>Search for restaurants</h1>
     <div class='search-div'>
       {{ember-selectize
         content=model
@@ -10,15 +14,16 @@
         autocomplete="on"
       }}
     </div>
-
-    <br><br>
-    <p>Available schedules:</p>
-    <ul>
-      {{#each chosenRestaurantId.schedules}}
-      {{#unless booked}}
-      <li>{{time}} <button {{action 'makeBooking' this}}>Book!</button></li>
-      {{/unless}}
-      {{/each}}
+    <h2>Available schedules:</h2>
+    <div class='well'>
+      <ul class='nav nav-pills schedules'>
+        {{#each chosenRestaurantId.schedules}}
+        {{#unless booked}}
+        <li><a {{action 'makeBooking' this}}>{{time-format time}} - Book!</a></li>
+        {{/unless}}
+        {{/each}}
+      </ul>
+    </div>
     </div>
   </div> <!-- row -->
 </div> <!-- container -->

@@ -1,8 +1,9 @@
-import {Model,attr} from 'fireplace';
+import {Model,attr,hasOne} from 'fireplace';
 
 export default Model.extend({
-  time: attr({default: "2000"}),
+  time: attr("string",{default: "2000"}),
   booked: attr("boolean", {default: false}),
+  restaurant: hasOne('restaurant'),
   bookedDidChange: function () {
     if (this.get("changeCameFromFirebase")) { return; }
     this.save();
